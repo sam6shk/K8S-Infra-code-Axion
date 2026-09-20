@@ -21,5 +21,16 @@ variable "infra_config" {
       })
       tags = optional(map(string), {})
     }))
+    postgresql_servers = optional(map(object({
+      rg_key             = string
+      server_name        = string
+      postgresql_version = optional(string, "16")
+      sku_name           = optional(string, "B_Standard_B1ms")
+      storage_mb         = optional(number, 32768)
+      admin_username     = string
+      admin_password     = string
+      database_name      = optional(string, "postgres")
+      tags               = optional(map(string), {})
+    })), {})
   })
 }

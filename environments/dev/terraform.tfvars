@@ -22,4 +22,31 @@ infra_config = {
       }
     }
   }
+  postgresql_servers = {
+
+    postgres_dev = {
+
+      rg_key = "rg-micro-dev"
+
+      server_name = "axion-postgres-server"
+
+      postgresql_version = "16"
+
+      sku_name = "B_Standard_B1ms"
+
+      storage_mb = 32768
+
+      admin_username = "devopsadmin"
+
+      admin_password = "P@ssw01rd123"
+
+      database_name = "postgres"
+
+      tags = {
+        Environment = "Dev"
+        ManagedBy   = "Terraform"
+      }
+    }
+  }
 }
+
